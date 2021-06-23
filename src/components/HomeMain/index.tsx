@@ -11,17 +11,17 @@ import liq1 from "images/liq-1.png";
 import liq2 from "images/liq-2.png";
 import liq3 from "images/liq-3.png";
 import liq6 from "images/liq-6.png";
-import { container } from "components/HomeMain/e.homemain";
+import { container, main, contents } from "components/HomeMain/e.homemain";
 
 function HomeMain() {
   return (
     <>
       {/* 컴포넌트의 최상단은 가장 큰 메인 태그가 존재합니다 */}
-      <main className="main">
+      <main className={main}>
         {/* 내부에 하나의 컨테이너를 두는 것은 관습인 것 같습니다 */}
-        <section className={`container ${container}`}>
+        <section className={container}>
           {/* contents를 담는 태그는 article을 이용합니다 */}
-          <article className="content">
+          <article className={contents}>
             {/* content는 다양합니다. 그런데 그 중에서도 특히 detail만 다루기 위해 태그로 감쌌습니다 */}
             <div className="content__details">
               <h1 className="content__title">Time tarvel to the future</h1>
@@ -48,22 +48,20 @@ function HomeMain() {
                 <Link to="#">
                   <AirplayIcon />
                 </Link>
-
-                <div className="image-group">
-                  <img src={banner5} alt="" />
-                  <img src={banner4} alt="" />
-                </div>
-
-                <div className="liq-group">
-                  <img src={liq1} alt="" />
-                  <img src={liq2} alt="" />
-                  <img src={liq3} alt="" />
-                  <img src={liq6} alt="" />
-                </div>
               </nav>
+            </div>
+
+            <div className="image-group">
+              <img src={banner5} alt="" />
+              <img src={banner4} alt="" />
             </div>
           </article>
         </section>
+
+        {/* <img src={liq1} alt="" />
+        <img src={liq2} alt="" />
+        <img src={liq3} alt="" />
+        <img src={liq6} alt="" /> */}
       </main>
     </>
   );
