@@ -3,12 +3,8 @@ import React from "react";
 function ArticleForm() {
   return (
     <form action="" className="search">
-      <input
-        type="text"
-        className="search-bar"
-        placeholder="your email address"
-      />
-      <button className="search-btn">Join</button>
+      <input type="text" placeholder="your email address" />
+      <input type="button" value="Join"></input>
     </form>
   );
 }

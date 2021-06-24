@@ -11,7 +11,12 @@ import liq1 from "images/liq-1.png";
 import liq2 from "images/liq-2.png";
 import liq3 from "images/liq-3.png";
 import liq6 from "images/liq-6.png";
-import { container, main, contents } from "components/HomeMain/e.homemain";
+import {
+  container,
+  main,
+  contents,
+  contesnts_details,
+} from "components/HomeMain/e.homemain";
 
 function HomeMain() {
   return (
@@ -23,9 +28,9 @@ function HomeMain() {
           {/* contents를 담는 태그는 article을 이용합니다 */}
           <article className={contents}>
             {/* content는 다양합니다. 그런데 그 중에서도 특히 detail만 다루기 위해 태그로 감쌌습니다 */}
-            <div className="content__details">
-              <h1 className="content__title">Time tarvel to the future</h1>
-              <p className="content__paragraph">
+            <div className={contesnts_details}>
+              <h1>Time tarvel to the future</h1>
+              <p>
                 If you want to meet your future, please check this site and see
                 what you want, what you want to be, and what you eagerly hope to
                 get
@@ -35,7 +40,7 @@ function HomeMain() {
               <ArticleFormMain />
 
               {/* nav 아이콘들입니다. 하지만 그 크기가 작은 리스트라서, 클래스를 따로 지정했습니다 */}
-              <nav className="sm-list">
+              <nav>
                 <Link to="#">
                   <AccessAlarmIcon />
                 </Link>
