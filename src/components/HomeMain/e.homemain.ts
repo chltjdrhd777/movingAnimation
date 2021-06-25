@@ -1,5 +1,34 @@
 import { css } from "@emotion/css/macro";
 import spiral from "images/bg-pat.png";
+import { keyframes } from "@emotion/react/macro";
+
+//!anmation
+const moveUp = keyframes`
+  from{
+    transform: translateY(0);
+  }
+  to{
+    transform: translateY(2rem);
+  }
+`;
+
+const moveDown = keyframes`
+  from{
+    transform: translateY(0);
+  }
+  to{
+    transform: translateY(-2rem);
+  }
+`;
+
+const hueRoate = keyframes`
+  from {
+    filter:hue-rotate(0);
+  }
+  to{
+    filter:hue-rotate(360deg);
+  }
+`;
 
 const main = css`
   width: 100%;
@@ -22,6 +51,35 @@ const main = css`
     background-size: cover;
     opacity: 0.6;
     z-index: -1;
+  }
+
+  & > img[class~="blob"] {
+    position: absolute;
+    z-index: -1;
+    animation: ${hueRoate} 2s infinite alternate;
+  }
+
+  //? position abolute 상태이면 justify-content:center 이 제대로 먹히지 않는다
+  //? 따라서, 각각에 대해서 중앙정렬을 해야 할 경우, left에 50%를 주고, transform으로 반대속성을 줘서 정렬한다
+  & > img[class~="blob"]:nth-of-type(1) {
+    top: -11rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  & > img[class~="blob"]:nth-of-type(2) {
+    top: 15rem;
+    left: -17rem;
+  }
+
+  & > img[class~="blob"]:nth-of-type(3) {
+    right: 5rem;
+    bottom: -24rem;
+  }
+
+  & > img[class~="blob"]:nth-of-type(4) {
+    left: -21rem;
+    bottom: -17rem;
   }
 `;
 
@@ -59,25 +117,26 @@ const contesnts_details = css`
 
       border-radius: 5rem;
       padding: 2rem;
-    }
 
-    & input:nth-child(1) {
-      width: calc(100% - 0.5rem);
-    }
+      &:nth-child(1) {
+        width: calc(100% - 0.5rem);
+      }
 
-    & input:nth-child(2) {
-      width: 10rem;
-      background-image: linear-gradient(to right, #ff83d5, #ffccb0);
-      color: white;
-      cursor: pointer;
-      margin-left: -10rem;
+      &:nth-child(2) {
+        width: 10rem;
+        background-image: linear-gradient(to right, #ff83d5, #ffccb0);
+        color: white;
+        cursor: pointer;
+        margin-left: -10rem;
 
-      &:hover {
-        background-image: linear-gradient(to left, #ff83d5, #ffccb0);
+        &:hover {
+          background-image: linear-gradient(to left, #ff83d5, #ffccb0);
+        }
       }
     }
   }
 
+  //? nav
   & > nav {
     display: flex;
 
@@ -100,4 +159,22 @@ const contesnts_details = css`
   }
 `;
 
-export { container, main, contents, contesnts_details };
+const image_group = css`
+  text-align: center;
+  position: relative;
+  animation: ${hueRoate} 2s infinite alternate;
+
+  & > img:nth-of-type(1) {
+    animation: ${moveUp} 2s infinite alternate;
+  }
+
+  & > img:nth-of-type(2) {
+    position: absolute;
+    top: 2.5rem;
+    left: -1rem;
+    z-index: 10;
+    animation: ${moveDown} 2s infinite alternate;
+  }
+`;
+
+export { container, main, contents, contesnts_details, image_group };

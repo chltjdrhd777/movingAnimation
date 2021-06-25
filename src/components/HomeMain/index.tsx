@@ -16,6 +16,7 @@ import {
   main,
   contents,
   contesnts_details,
+  image_group,
 } from "components/HomeMain/e.homemain";
 
 function HomeMain() {
@@ -56,17 +57,18 @@ function HomeMain() {
               </nav>
             </div>
 
-            <div className="image-group">
-              <img src={banner5} alt="" />
-              <img src={banner4} alt="" />
+            {/* 가장 큰 컨테이너에는 css를 inline으로 주지만, 자식들은 scss를 이용합니다*/}
+            <div className={image_group}>
+              <img src={banner5} alt="" className="hue-rotate" />
+              <img src={banner4} alt="" className="hue-rotate" />
             </div>
           </article>
         </section>
 
-        {/* <img src={liq1} alt="" />
-        <img src={liq2} alt="" />
-        <img src={liq3} alt="" />
-        <img src={liq6} alt="" /> */}
+        <img src={liq1} alt="" className="blob" />
+        <img src={liq2} alt="" className="blob" />
+        <img src={liq3} alt="" className="blob" />
+        <img src={liq6} alt="" className="blob" />
       </main>
     </>
   );
