@@ -1,4 +1,5 @@
 import { css } from "@emotion/css/macro";
+import { device } from "emotionCSS/theme";
 
 const header = css`
   position: absolute;
@@ -33,6 +34,11 @@ const navList = css`
     font-size: 1.2rem;
     text-transform: uppercase;
     transition: opcity 0.3s;
+    & > a {
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
     &:hover {
       opacity: 0.6;
     }
@@ -43,4 +49,12 @@ const navList = css`
   }
 `;
 
-export { nav, container, header, navList };
+const headerMedia = css`
+  @media ${device.tablet} {
+    ${`.${nav}`} {
+      align-items: center;
+    }
+  }
+`;
+
+export { nav, container, header, navList, headerMedia };

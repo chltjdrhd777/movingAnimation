@@ -1,13 +1,14 @@
 import React, { PropsWithChildren } from "react";
 import { Link } from "react-router-dom";
 import logo from "images/logo.png";
-import { container, nav, header, navList } from "layout/e.header";
+import { container, nav, header, navList, headerMedia } from "layout/e.header";
 
 function Header({ children }: PropsWithChildren<{}>) {
+  console.log(nav);
   return (
     <>
       {/* 가장 큰 컴포넌트 단위를 나누십시오 (header) */}
-      <header className={header}>
+      <header className={`${header} ${headerMedia}`}>
         {/* 그 내부에는 하나의 container을 지정해 두는 것이 관습인 것 같습니다 */}
         <section className={container}>
           {/* 내부는 기능별로 나누십시오 = 현재는 nav가 헤더에서의 주 역할이 되고 있습니다 */}

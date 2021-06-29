@@ -17,13 +17,15 @@ import {
   contents,
   contesnts_details,
   image_group,
+  homeMedia,
 } from "components/HomeMain/e.homemain";
 
 function HomeMain() {
+  console.log(container, main, contents);
   return (
     <>
       {/* 컴포넌트의 최상단은 가장 큰 메인 태그가 존재합니다 */}
-      <main className={main}>
+      <main className={`${main} ${homeMedia}`}>
         {/* 내부에 하나의 컨테이너를 두는 것은 관습인 것 같습니다 */}
         <section className={container}>
           {/* contents를 담는 태그는 article을 이용합니다 */}
@@ -59,7 +61,7 @@ function HomeMain() {
 
             {/* 가장 큰 컨테이너에는 css를 inline으로 주지만, 자식들은 scss를 이용합니다*/}
             <div className={image_group}>
-              <img src={banner5} alt="" className="hue-rotate" />
+              <img src={banner5} alt="" className="hue-rotate big-banner" />
               <img src={banner4} alt="" className="hue-rotate" />
             </div>
           </article>
